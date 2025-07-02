@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Histórico | EcoSensor Verde</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #9fffb5;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #cccccc;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #9fffb5;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover,
+    nav a.ativo {
+      background-color: #9fffb533;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    h2.titulo-historico {
+      font-size: 1.8rem;
+      text-align: center;
+      margin: 30px 0 20px;
+      color: #ffffff;
+    }
+
+    .grafico-historico {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    canvas {
+      max-width: 400px;
+      margin: auto;
+      background-color: #ffffff10;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    th {
+      background-color: #1c3b4f;
+      color: #9fffb5;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #999;
+    }
+
+    @media (max-width: 600px) {
+      h2.titulo-historico {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌱 EcoSensor Verde</h1>
+  <p>Monitoramento Inteligente para Reflorestamento Sustentável</p>
+  <nav>
+    <ul>
+      <li><a href="EcoSensor.html">Início</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="desempenho.html">Desempenho</a></li>
+      <li><a href="historico.html" class="ativo">Histórico</a></li>
+      <li><a href="especies.html">Espécies</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="solucoes.html">Soluções</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2 class="titulo-historico">📊 Histórico de Qualidade do Solo</h2>
+
+  <div class="grafico-historico">
+    <h3>🌿 Distribuição de Qualidade do Solo</h3>
+    <canvas id="graficoDoughnut"></canvas>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Temperatura (°C)</th>
+        <th>Umidade (%)</th>
+        <th>pH</th>
+        <th>Luminosidade (Lux)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>01/06</td>
+        <td>24</td>
+        <td>65</td>
+        <td>6.5</td>
+        <td>800</td>
+      </tr>
+      <tr>
+        <td>02/06</td>
+        <td>26</td>
+        <td>60</td>
+        <td>6.7</td>
+        <td>750</td>
+      </tr>
+      <tr>
+        <td>03/06</td>
+        <td>23</td>
+        <td>70</td>
+        <td>6.4</td>
+        <td>820</td>
+      </tr>
+      <tr>
+        <td>04/06</td>
+        <td>25</td>
+        <td>68</td>
+        <td>6.6</td>
+        <td>780</td>
+      </tr>
+      <tr>
+        <td>05/06</td>
+        <td>27</td>
+        <td>66</td>
+        <td>6.8</td>
+        <td>790</td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+
+<footer>
+  <p>&copy; 2026 • EcoSensor Verde — Todos os direitos reservados</p>
+</footer>
+
+<script>
+  const ctx = document.getElementById('graficoDoughnut');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Boa', 'Regular', 'Ruim'],
+      datasets: [{
+        label: 'Qualidade do Solo',
+        data: [60, 25, 15],
+        backgroundColor: [
+          'rgba(0, 255, 128, 0.6)',
+          'rgba(255, 206, 86, 0.6)',
+          'rgba(255, 99, 132, 0.6)'
+        ],
+        borderColor: ['#00ff80', '#ffce56', '#ff6384'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          labels: {
+            color: '#ffffff'
+          }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Espécies | EcoSensor Verde</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #9fffb5;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #cccccc;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #9fffb5;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover,
+    nav a.ativo {
+      background-color: #9fffb533;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1100px;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    main p {
+      margin-bottom: 30px;
+      color: #cccccc;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 300px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #9fffb5;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #eeeeee;
+      margin: 4px 0;
+    }
+
+    .card p strong {
+      color: #9fffb5;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #999;
+    }
+
+    @media (max-width: 768px) {
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  
+ 
+  <nav>
+    <ul>
+      <li><a href="EcoSensor.html">Início</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="desempenho.html">Desempenho</a></li>
+      <li><a href="historico.html">Histórico</a></li>
+      <li><a href="especies.html" class="ativo">Espécies</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="solucoes.html">Soluções</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2>🌿 Espécies Monitoradas</h2>
+  
+
+  <div class="cards-container">
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Handroanthus_albus.jpg/640px-Handroanthus_albus.jpg" alt="Ipê Amarelo">
+      <h3>🌳 Ipê Amarelo</h3>
+      <p><strong>Nome Científico:</strong> Handroanthus albus</p>
+      <p><strong>Origem:</strong> Mata Atlântica</p>
+      <p><strong>Descrição:</strong> Árvore de grande porte, muito usada em reflorestamentos e conhecida por sua linda floração amarela.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Jacaranda_mimosifolia_flower.jpg" alt="Jacarandá">
+      <h3>🌳 Jacarandá</h3>
+      <p><strong>Nome Científico:</strong> Jacaranda mimosifolia</p>
+      <p><strong>Origem:</strong> América do Sul</p>
+      <p><strong>Descrição:</strong> Árvore de médio a grande porte, famosa pelas flores roxas exuberantes durante a primavera.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Araucaria_angustifolia.jpg" alt="Araucária">
+      <h3>🌳 Araucária</h3>
+      <p><strong>Nome Científico:</strong> Araucaria angustifolia</p>
+      <p><strong>Origem:</strong> Região Sul do Brasil</p>
+      <p><strong>Descrição:</strong> Espécie símbolo da região Sul, essencial para a fauna local e muito usada em projetos de conservação.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 • EcoSensor Verde — Todos os direitos reservados</p>
+</footer>
+
+</body>
+</html>

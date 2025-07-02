@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro - EcoSensor Verde</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #9fffb5;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #cccccc;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ffffff15;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: background 0.3s ease;
+    }
+
+    input::placeholder {
+      color: #cccccc;
+    }
+
+    input:focus {
+      background-color: #ffffff25;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #9fffb5;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #6ae697;
+    }
+
+    .login-link {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .login-link a {
+      color: #9fffb5;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .login-link a:hover {
+      color: #6ae697;
+    }
+
+    @media (max-width: 500px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌿 EcoSensor Verde</h1>
+    <p>Cadastre sua empresa para começar</p>
+  </header>
+  <main>
+    <form method="POST" action="cds.html">
+      <input type="text" name="empresa" placeholder="Nome da Empresa" required>
+      <input type="email" name="email" placeholder="Digite seu email" required>
+      <input type="password" name="senha" placeholder="Crie uma senha" required>
+      <input type="password" name="confirma_senha" placeholder="Confirme a senha" required>
+      <button type="submit">Cadastrar</button>
+      <div class="login-link">
+        <p>Já tem uma conta? <a href="cadastro_especies.html">Entrar aqui</a></p>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

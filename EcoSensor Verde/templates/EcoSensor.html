@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="refresh" content="10"> <!-- Atualiza a cada 10 segundos -->
+  <title>EcoSensor Verde | Painel</title>
+  <style>
+    /* (mantém todo o CSS original) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #9fffb5;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #cccccc;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #9fffb5;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover,
+    nav a.ativo {
+      background-color: #9fffb533;
+    }
+
+    main h2 {
+      font-size: 1.8rem;
+      margin: 20px 0;
+      color: #ffffff;
+    }
+
+    .painel {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 12px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #9fffb5;
+    }
+
+    .card p {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    footer {
+      margin-top: auto;
+      text-align: center;
+      padding: 15px;
+      color: #999;
+    }
+
+    @media (max-width: 600px) {
+      main h2 {
+        font-size: 1.4rem;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌱 EcoSensor Verde</h1>
+    <p>Monitoramento Inteligente para Reflorestamento Sustentável</p>
+    <nav>
+      <ul>
+        <li><a href="/" class="ativo">Início</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="desempenho.html">Desempenho</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="solucoes.html">Soluções</a></li>
+        <li><a href="historico.html">Histórico</a></li>
+        <li><a href="especies.html">Espécie</a></li>
+        <li><a href="cadastro_especies.html">Cadastro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>📊 Dados Ambientais em Tempo Real</h2>
+    <div class="painel">
+      <div class="card">
+        <h3>🌡️ Temperatura</h3>
+        <p id="temperatura">{{ temperatura }}</p>
+      </div>
+      <div class="card">
+        <h3>💧 Umidade do Solo</h3>
+        <p id="umidade">{{ umidade }}</p>
+      </div>
+      <div class="card">
+        <h3>☀️ Luminosidade</h3>
+        <p id="luz">{{ luminosidade }}</p>
+      </div>
+      <div class="card">
+        <h3>🌿 pH do Solo</h3>
+        <p id="ph">{{ ph }}</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - EcoSensor Verde | Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

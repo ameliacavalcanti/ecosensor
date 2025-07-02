@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Solo - EcoSensor Verde</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #9fffb5;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #cccccc;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, select {
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ffffff15;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: background 0.3s ease;
+    }
+
+    input::placeholder, select {
+      color: #cccccc;
+    }
+
+    input:focus, select:focus {
+      background-color: #ffffff25;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #9fffb5;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #6ae697;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    @media (max-width: 500px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌿 Cadastro de Solo</h1>
+    <p>Preencha os dados para análise ambiental</p>
+  </header>
+
+  <main>
+    <form id="cadastroSoloForm">
+      <input type="text" name="solo" placeholder="Tipo de Solo" required>
+      <input type="number" name="hectares" placeholder="Quantidade de Hectares" required>
+      <input type="text" name="muda" placeholder="Tipo de Muda" required>
+      <select name="chuva" required>
+        <option value="">Costuma chover muito?</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
+      <button type="submit">Salvar Dados</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 • EcoSensor Verde — CEET Giuseppe Altoé</p>
+  </footer>
+
+  <script>
+    // Ao enviar o formulário, evita que a página recarregue e redireciona
+    document.getElementById('cadastroSoloForm').addEventListener('submit', function (e) {
+      e.preventDefault(); // impede envio real
+      window.location.href = 'cadastro_especies.html'; // redireciona para a próxima página
+    });
+  </script>
+
+</body>
+</html>

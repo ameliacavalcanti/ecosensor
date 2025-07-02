@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cadastrar Espécie | EcoSensor Verde</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f0f0f0; padding: 20px;}
+    h1 { color: #2e7d32; }
+    form {
+      background: white; padding: 20px; border-radius: 8px;
+      max-width: 500px; margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label { display: block; margin-top: 15px; font-weight: bold; }
+    input[type=text], textarea {
+      width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ccc;
+    }
+    textarea { resize: vertical; height: 100px; }
+    input[type=file] { margin-top: 10px; }
+    button {
+      margin-top: 20px; background: #2e7d32; color: white; padding: 10px 20px;
+      border: none; border-radius: 4px; cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover { background: #1b4d22; }
+    .flash { color: red; text-align: center; margin-bottom: 15px;}
+    a { display: block; margin-top: 15px; text-align: center; color: #2e7d32; text-decoration: none;}
+  </style>
+</head>
+<body>
+
+  <h1>➕ Cadastrar Nova Espécie</h1>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash">{{ messages[0] }}</div>
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST" enctype="multipart/form-data">
+    <label for="nome">Nome Popular</label>
+    <input type="text" id="nome" name="nome" required />
+
+    <label for="nome_cientifico">Nome Científico</label>
+    <input type="text" id="nome_cientifico" name="nome_cientifico" required />
+
+    <label for="origem">Origem</label>
+    <input type="text" id="origem" name="origem" required />
+
+    <label for="descricao">Descrição</label>
+    <textarea id="descricao" name="descricao" required></textarea>
+
+    <label for="imagem">Imagem da Espécie</label>
+    <input type="file" id="imagem" name="imagem" accept="image/*" required />
+
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <a href="cadastro_especies.html">&larr; Voltar para Espécies</a>
+  
+</body>
+</html>

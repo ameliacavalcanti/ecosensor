@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - EcoSensor Verde</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #9fffb5;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #cccccc;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #9fffb5;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover,
+    nav a.ativo {
+      background-color: #9fffb533;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1000px;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    main h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+      min-width: 350px;
+    }
+
+    th, td {
+      padding: 12px 18px;
+      border-bottom: 1px solid #555;
+      text-align: center;
+    }
+
+    th {
+      background-color: #2e7d32;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    tr:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      th, td {
+        padding: 10px 8px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌱 EcoSensor Verde</h1>
+    <p>Monitoramento Inteligente para Reflorestamento Sustentável</p>
+    <nav>
+      <ul>
+        <li><a href="EcoSensor.html">Início</a></li>
+        <li><a href="dashboard.html" class="ativo">Dashboard</a></li>
+        <li><a href="desempenho.html">Desempenho</a></li>
+        <li><a href="historico.html">Histórico</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="solucoes.html">Soluções</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>📊 Histórico de Alertas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tipo</th>
+          <th>Valor</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for alerta in alertas %}
+        <tr>
+          <td>{{ alerta[0] }}</td>
+          <td>{{ alerta[1] }}</td>
+          <td>{{ alerta[2] }}</td>
+          <td>{{ alerta[3] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 • EcoSensor Verde — Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

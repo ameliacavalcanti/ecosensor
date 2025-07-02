@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desempenho | EcoSensor Verde</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #9fffb5;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #cccccc;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #9fffb5;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover,
+    nav a.ativo {
+      background-color: #9fffb533;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .titulo-monitoramento {
+      font-size: 1.8rem;
+      text-align: center;
+      margin: 30px 0 20px;
+      color: #ffffff;
+    }
+
+    .container-graficos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .grafico {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .grafico h3 {
+      margin-bottom: 10px;
+      color: #9fffb5;
+    }
+
+    canvas {
+      background-color: #ffffff10;
+      border-radius: 8px;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #999;
+    }
+
+    @media (max-width: 600px) {
+      .titulo-monitoramento {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌱 EcoSensor Verde</h1>
+  <p>Monitoramento Inteligente para Reflorestamento Sustentável</p>
+  <nav>
+    <ul>
+      <li><a href="EcoSensor.html">Início</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="desempenho.html" class="ativo">Desempenho</a></li>
+      <li><a href="historico.html">Histórico</a></li>
+      <li><a href="especies.html">Espécies</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="solucoes.html">Soluções</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2 class="titulo-monitoramento">📈 Monitoramento</h2>
+
+  <div class="container-graficos">
+    <div class="grafico">
+      <h3>🌡️ Temperatura</h3>
+      <canvas id="graficoTemperatura"></canvas>
+    </div>
+
+    <div class="grafico">
+      <h3>💧 Umidade do Solo</h3>
+      <canvas id="graficoUmidade"></canvas>
+    </div>
+
+    <div class="grafico">
+      <h3>☀️ Luminosidade</h3>
+      <canvas id="graficoLuz"></canvas>
+    </div>
+
+    <div class="grafico">
+      <h3>🌿 pH do Solo</h3>
+      <canvas id="graficoPh"></canvas>
+    </div>
+    <div class="grafico">
+  <h3>🌧️ Chuva e Dias de Sol</h3>
+  <canvas id="graficoClima"></canvas>
+</div>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 • EcoSensor Verde — Todos os direitos reservados</p>
+</footer>
+
+<script>
+const labels = ['01/06', '02/06', '03/06', '04/06', '05/06'];
+
+// Temperatura
+new Chart(document.getElementById('graficoTemperatura'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [{
+      label: 'Temperatura (°C)',
+      data: [24, 26, 23, 25, 27],
+      borderColor: 'red',
+      backgroundColor: 'rgba(255,0,0,0.2)',
+      fill: true
+    }]
+  }
+});
+
+// Umidade
+new Chart(document.getElementById('graficoUmidade'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [{
+      label: 'Umidade (%)',
+      data: [65, 60, 70, 68, 66],
+      borderColor: 'blue',
+      backgroundColor: 'rgba(0,0,255,0.2)',
+      fill: true
+    }]
+  }
+});
+
+// Luminosidade
+new Chart(document.getElementById('graficoLuz'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [{
+      label: 'Luminosidade (Lux)',
+      data: [800, 750, 820, 780, 790],
+      borderColor: 'orange',
+      backgroundColor: 'rgba(255,165,0,0.2)',
+      fill: true
+    }]
+  }
+});
+
+// pH do Solo
+new Chart(document.getElementById('graficoPh'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [{
+      label: 'pH do Solo',
+      data: [6.5, 6.7, 6.4, 6.6, 6.8],
+      borderColor: 'green',
+      backgroundColor: 'rgba(0,128,0,0.2)',
+      fill: true
+    }]
+  }
+});
+
+// Chuva e Dias de Sol
+new Chart(document.getElementById('graficoClima'), {
+  type: 'bar',
+  data: {
+    labels,
+    datasets: [
+      {
+        label: 'Chuva (mm)',
+        data: [10, 5, 0, 12, 8],
+        backgroundColor: 'rgba(0, 123, 255, 0.6)'
+      },
+      {
+        label: 'Dias de Sol',
+        data: [1, 2, 3, 1, 2],
+        backgroundColor: 'rgba(255, 206, 86, 0.7)'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        labels: {
+          color: '#fff'
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: '#fff'
+        }
+      },
+      y: {
+        ticks: {
+          color: '#fff'
+        }
+      }
+    }
+  }
+});
+
+</script>
+
+</body>
+</html>
